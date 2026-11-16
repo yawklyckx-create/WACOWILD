@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>WACOWILD // XØX — Online Store</title>
+<style>
+:root{--bg:#090909;--panel:#111;--line:#303030;--muted:#aaa;--white:#f5f5f2;--red:#e33b32}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:"Courier New",monospace;letter-spacing:.015em}button,input,select,textarea{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+.topline{border-bottom:1px solid var(--line);padding:10px 0;text-align:center;font-size:10px;letter-spacing:.18em;color:#c9c9c9}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-weight:900;letter-spacing:.16em;font-size:17px}.brand small{display:block;font-size:9px;color:var(--muted);font-weight:400;margin-top:5px;letter-spacing:.22em}.nav{display:flex;gap:24px;font-size:11px}.cartbtn{border:1px solid #777;background:transparent;color:white;padding:10px 13px;cursor:pointer;font-size:11px}
+.hero{padding:72px 0 52px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}.eyebrow{font-size:10px;letter-spacing:.24em;color:#aaa}.hero h1{font-size:clamp(64px,12vw,140px);line-height:.82;letter-spacing:-.09em;margin:22px 0 18px}.hero h1 span{color:#777}.hero p{max-width:460px;color:#bbb;font-size:13px;line-height:1.8}.cta{display:inline-flex;background:var(--white);color:#080808;padding:15px 20px;margin-top:18px;font-size:11px;font-weight:bold;letter-spacing:.1em}.hero-art{min-height:360px;border:1px solid var(--line);background:linear-gradient(145deg,#171717,#080808);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.hero-art:before{content:"XØX";font-size:clamp(80px,15vw,180px);font-weight:bold;letter-spacing:-.12em;color:#202020;position:absolute}.art-caption{z-index:1;border:1px solid #555;padding:18px 24px;background:#090909d9;text-align:center}.art-caption b{font-size:22px;letter-spacing:.12em}.art-caption small{display:block;margin-top:9px;color:#aaa;font-size:9px;letter-spacing:.2em}
+.section-head{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin:30px 0 22px}.section-head h2{font-size:22px;margin:0;letter-spacing:.08em}.section-head span{font-size:10px;color:#999}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.product{border:1px solid var(--line);background:#0d0d0d}.product-visual{height:330px;background:#151515;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.product-visual.white{background:#e7e7e3}.tee{width:190px;height:218px;position:relative;clip-path:polygon(20% 0,37% 0,42% 8%,58% 8%,63% 0,80% 0,100% 22%,84% 38%,75% 30%,75% 100%,25% 100%,25% 30%,16% 38%,0 22%);filter:drop-shadow(0 18px 15px #0008)}.tee.black{background:linear-gradient(120deg,#242424,#050505 65%,#181818)}.tee.white{background:linear-gradient(120deg,#fff,#d5d5d2 70%,#f6f6f3)}.tee-mark{position:absolute;top:43%;left:0;right:0;text-align:center;font-size:13px;font-weight:bold;letter-spacing:.13em}.tee.black .tee-mark{color:#f2f2f2}.tee.white .tee-mark{color:#101010}.color-tag{position:absolute;left:13px;top:13px;font-size:9px;letter-spacing:.15em;color:#aaa}.product-info{padding:18px}.product-info h3{margin:0 0 8px;font-size:15px;letter-spacing:.08em}.price{font-size:13px;color:#ddd}.product-info p{font-size:10px;color:#999;line-height:1.6}.product-info button{width:100%;margin-top:10px;padding:13px;background:var(--white);border:0;color:#080808;font-weight:bold;font-size:11px;cursor:pointer}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:58px 0}.detail{border:1px solid var(--line);padding:22px}.detail h3{font-size:12px;letter-spacing:.14em}.detail p,.detail li{font-size:11px;color:#aaa;line-height:1.8}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#888;font-size:10px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:#000c;display:none;align-items:flex-end;justify-content:center;z-index:10;padding:16px}.modal.open{display:flex}.sheet{background:#101010;border:1px solid #444;width:min(600px,100%);max-height:92vh;overflow:auto;padding:22px}.sheet-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:13px}.sheet-head h2{font-size:16px;margin:0}.close{background:none;border:0;color:#fff;font-size:24px;cursor:pointer}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:9px;color:#aaa;letter-spacing:.12em}.field input,.field select,.field textarea{width:100%;background:#080808;border:1px solid #444;color:#fff;padding:13px;outline:none;border-radius:0}.field textarea{min-height:70px;resize:vertical}.summary{border:1px solid #333;padding:14px;margin:16px 0;font-size:11px;line-height:1.8;color:#bbb}.summary strong{color:#fff}.submit{width:100%;background:#f4f4f1;color:#080808;border:0;padding:16px;font-weight:bold;cursor:pointer;font-size:11px;letter-spacing:.08em}.hint{font-size:9px;color:#888;line-height:1.7;margin-top:12px}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding:48px 0 30px}.hero-art{min-height:250px}.nav{gap:12px}.nav a{display:none}.product-visual{height:250px}.tee{transform:scale(.85)}.details{grid-template-columns:1fr}.brand{font-size:14px}}
+@media(max-width:420px){.product-grid{gap:10px}.product-visual{height:210px}.product-info{padding:13px}.product-info h3{font-size:12px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero h1{font-size:76px}}
+</style>
+</head>
+<body>
+<div class="topline">WACOWILD // XØX — XPERIENCE OF XPRESSION</div>
+<div class="wrap">
+<header>
+  <a class="brand" href="#">WACOWILD<small>STAY WILD. MOVE LIMITLESS.</small></a>
+  <nav class="nav"><a href="#collection">COLLECTION</a><a href="#info">INFO</a></nav>
+  <button class="cartbtn" onclick="openOrder('BLACK')">ORDER NOW ↗</button>
+</header>
+<main>
+<section class="hero">
+ <div><div class="eyebrow">01 / THE XØX COLLECTION</div><h1>XØX<span>//</span></h1><div class="eyebrow">XPERIENCE OF XPRESSION</div><p>A statement in simplicity. XØX // WW is made for those who move with their own expression. Choose your colourway, select your size and place your order directly with WACOWILD.</p><a class="cta" href="#collection">SHOP THE TEE ↘</a></div>
+ <div class="hero-art"><div class="art-caption"><b>WACOWILD</b><small>INDEPENDENT EXPRESSION / 2026</small></div></div>
+</section>
+<section id="collection">
+ <div class="section-head"><h2>THE DROP / XØX // WW</h2><span>02 COLOURWAYS</span></div>
+ <div class="product-grid">
+  <article class="product"><div class="product-visual"><span class="color-tag">01 / BLACK</span><div class="tee black"><div class="tee-mark">XØX // WW</div></div></div><div class="product-info"><h3>XØX // WW — BLACK</h3><div class="price">FROM GH₵150</div><p>Black colourway · Sizes S–2XL</p><button onclick="openOrder('BLACK')">SELECT BLACK ↗</button></div></article>
+  <article class="product"><div class="product-visual white"><span class="color-tag" style="color:#555">02 / WHITE</span><div class="tee white"><div class="tee-mark">XØX // WW</div></div></div><div class="product-info"><h3>XØX // WW — WHITE</h3><div class="price">FROM GH₵150</div><p>White colourway · Sizes S–2XL</p><button onclick="openOrder('WHITE')">SELECT WHITE ↗</button></div></article>
+ </div>
+</section>
+<section id="info" class="details">
+ <div class="detail"><h3>ORDER / PAYMENT</h3><p>Place your order through WhatsApp. We'll confirm availability, delivery cost and your order total. Payment is by Mobile Money to the account below after order confirmation.</p><p><strong>MoMo: 0540937192</strong><br>Account name: JULIUS ELKINGS AKABA</p></div>
+ <div class="detail"><h3>SIZE / DELIVERY</h3><p>Available sizes: S · M · L · XL · 2XL</p><p>Delivery cost is confirmed with you before payment, based on your location. Please wait for order confirmation before sending payment.</p></div>
+</section>
+</main>
+<footer><span>© 2026 WACOWILD / XØX</span><span>STAY WILD. XPERIENCE OF XPRESSION.</span></footer>
+</div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+<div class="sheet">
+ <div class="sheet-head"><h2 id="orderTitle">XØX // WW — PLACE ORDER</h2><button class="close" onclick="closeOrder()" aria-label="Close">×</button></div>
+ <form id="orderForm">
+  <div class="formgrid">
+   <div class="field full"><label for="customer">FULL NAME</label><input id="customer" name="customer" required autocomplete="name" placeholder="Your name"></div>
+   <div class="field"><label for="phone">PHONE NUMBER</label><input id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="024 XXX XXXX"></div>
+   <div class="field"><label for="colour">COLOURWAY</label><select id="colour" name="colour"><option>BLACK</option><option>WHITE</option></select></div>
+   <div class="field"><label for="size">SIZE</label><select id="size" name="size" required><option value="">Choose size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+   <div class="field"><label for="qty">QUANTITY</label><select id="qty" name="qty"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+   <div class="field full"><label for="location">DELIVERY LOCATION / TOWN</label><input id="location" name="location" required placeholder="Your town or area"></div>
+   <div class="field full"><label for="address">DELIVERY ADDRESS / LANDMARK</label><textarea id="address" name="address" required placeholder="House number, street or nearby landmark"></textarea></div>
+  </div>
+  <div class="summary"><strong>ITEM:</strong> XØX // WW TEE<br><strong>PRICE:</strong> GH₵150 each (starting price)<br><strong>PAYMENT:</strong> Mobile Money after order and delivery confirmation<br><strong>MoMo:</strong> 0540937192 — JULIUS ELKINGS AKABA</div>
+  <button class="submit" type="submit">SEND ORDER VIA WHATSAPP ↗</button>
+  <p class="hint">This sends your order details to WACOWILD on WhatsApp. Your order is not confirmed until we reply. Please do not send MoMo payment before receiving confirmation of stock and delivery cost.</p>
+ </form>
+</div>
+</div>
+<script>
+const modal=document.getElementById('modal');
+function openOrder(colour){document.getElementById('colour').value=colour;modal.classList.add('open');document.body.style.overflow='hidden'}
+function closeOrder(){modal.classList.remove('open');document.body.style.overflow=''}
+modal.addEventListener('click',e=>{if(e.target===modal)closeOrder()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOrder()});
+document.getElementById('orderForm').addEventListener('submit',function(e){
+ e.preventDefault();const f=new FormData(this);const qty=Number(f.get('qty'));const msg=[
+ 'WACOWILD // XØX — NEW ORDER','',
+ 'Name: '+f.get('customer'),'Phone: '+f.get('phone'),
+ 'Product: XØX // WW Tee','Colour: '+f.get('colour'),'Size: '+f.get('size'),
+ 'Quantity: '+qty,'Item subtotal: GH₵'+(150*qty)+' (starting price; please confirm)',
+ 'Delivery location: '+f.get('location'),'Address / landmark: '+f.get('address'),'',
+ 'Please confirm availability, final price and delivery fee. I will pay by MoMo after confirmation.'
+ ].join('\n');
+ window.open('https://wa.me/233540937192?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+</body>
+</html>
